@@ -44,6 +44,12 @@ DAP42.bin: | $(BUILD_DIR)
 	$(Q)$(MAKE) TARGET=STM32F042 -C src/
 	$(Q)cp src/DAP42.bin $(BUILD_DIR)/$(@)
 
+ATSAML11.bin: | $(BUILD_DIR)
+	@printf "  BUILD $(@)\n"
+	$(Q)$(MAKE) TARGET=ATSAML11 -C src/ clean
+	$(Q)$(MAKE) TARGET=ATSAML11 -C src/
+	$(Q)cp src/DAP42.bin $(BUILD_DIR)/$(@)
+
 DAP42DC.bin: | $(BUILD_DIR)
 	@printf "  BUILD $(@)\n"
 	$(Q)$(MAKE) TARGET=DAP42DC -C src/ clean
